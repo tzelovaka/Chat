@@ -1,8 +1,10 @@
     <template>
         <div>
             <div>
-               <div class="p-4">
-                <Link :href="route('chats.index')">Chats</Link>
+               <div class="flex p-4 bg-gray-600 text-white mb-8">
+                <Link class="mx-4" :href="route('index')">Главная</Link>
+                <Link class="mx-4" :href="route('chats.index')">Чаты</Link>
+                <Link class="mx-4" :href="route('dashboard')">Профиль</Link>
                </div>
             </div>
             <slot />

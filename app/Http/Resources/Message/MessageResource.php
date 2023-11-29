@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Message;
 
+use App\Http\Resources\Image\ImageResource;
 use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -22,6 +23,7 @@ class MessageResource extends JsonResource
             'content' => $this->content,
             'time' => $this->time,
             'is_owner' => $this->isOwner,
+            'images' => $this->message,
         ];
     }
 }

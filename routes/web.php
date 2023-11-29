@@ -17,23 +17,25 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
+/*Route::get('/', function () {
+    return Inertia::render('Dashboard', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('index');*/
 
-
+Route::get('/', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/chats', [App\Http\Controllers\ChatController::class, 'index'])->name('chats.index');
+    Route::get('/chats', [App\Http\Controllers\ChatController::class, 'show'])->name('chats.index');
     Route::post('/chats', [App\Http\Controllers\ChatController::class, 'store'])->name('chats.store');
     Route::get('/chats/{chat}', [App\Http\Controllers\ChatController::class, 'show'])->name('chats.show');
     Route::post('/messages', [App\Http\Controllers\MessageController::class, 'store'])->name('message.store');
