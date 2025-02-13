@@ -1,4 +1,4 @@
-Тестовое задание для вакансии https://rabota.by/vacancy/89742313?hhtmFrom=chat
+Тестовое задание для вакансии
 Запуск проекта:
 1) "php artisan migrate" (миграции в БД, используется SQLite);
 2) "php artisan serve" (запускается сервер);
